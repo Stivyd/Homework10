@@ -21,7 +21,7 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldSetTotalStation(){
+    public void shouldSetTotalStation() {
         Radio radio = new Radio();
 
         radio.setTotalStation(15);
@@ -63,17 +63,17 @@ public class RadioTest {
     //  System.out.println("Следующая радиостанция " + radio.getCurrentStation());
     //}
 
-   // @ParameterizedTest
-   // @CsvFileSource(resources = "prevStationParameter.csv")
-   // public void shouldSetPrevStationParametrized(int currentStation, int expected) {
-   //     Radio radio = new Radio();
-   //     radio.setCurrentStation(currentStation);
-   //     System.out.print("Текущая радиостанция " + radio.getCurrentStation() + ", ");
-   //     radio.prevStation();
+    @ParameterizedTest
+    @CsvFileSource(resources = "prevStationParameter.csv")
+    public void shouldSetPrevStationParametrized(int currentStation, int expected) {
+        Radio radio = new Radio();
+        radio.setCurrentStation(currentStation);
+        System.out.print("Текущая радиостанция " + radio.getCurrentStation() + ", ");
+        radio.prevStation();
 
-    //    int actual = radio.getCurrentStation();
-     //   Assertions.assertEquals(expected, actual);
-     //   System.out.println("Предыдущая радиостанция " + radio.getCurrentStation());
+        int actual = radio.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+        System.out.println("Предыдущая радиостанция " + radio.getCurrentStation());
     }
 
     // @Test
@@ -90,16 +90,15 @@ public class RadioTest {
     //Assertions.assertEquals(expected, actual);
     //  System.out.println("Предыдущая радиостанция " + radio.getCurrentStation());
     //}
-
-   // @ParameterizedTest
-   // @CsvFileSource(resources = "setVolumeParameter.csv")
-   // public void shouldSetCurrentVolumeParametrized(int currentVolume, int expected) {
-     //   Radio radio = new Radio();
-    //    radio.setCurrentVolume(currentVolume);
-    //    int actual = radio.getCurrentVolume();
-   //     Assertions.assertEquals(expected, actual);
-   //     System.out.println("Текущая громкость " + radio.getCurrentVolume());
-  //  }
+    @ParameterizedTest
+    @CsvFileSource(resources = "setVolumeParameter.csv")
+    public void shouldSetCurrentVolumeParametrized(int currentVolume, int expected) {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(currentVolume);
+        int actual = radio.getCurrentVolume();
+        Assertions.assertEquals(expected, actual);
+        System.out.println("Текущая громкость " + radio.getCurrentVolume());
+    }
 
     //@Test
     //public void shouldSetVolume() {
@@ -114,17 +113,17 @@ public class RadioTest {
     //  System.out.println("Текущий уровень громкости  " + radio.getCurrentVolume());
     //}
 
-   // @ParameterizedTest
-   // @CsvFileSource(resources = "increaseVolumeParameter.csv")
-   // public void shouldIncreaseVolume(int currentVolume, int expected) {
-    //    Radio radio = new Radio();
-   //     radio.setCurrentVolume(currentVolume);
-    //    System.out.print("Текущий уровень громкости  " + radio.getCurrentVolume() + ", ");
-   //     radio.increaseVolume();
-   //     int actual = radio.getCurrentVolume();
-   //     Assertions.assertEquals(expected, actual);
-    //    System.out.println("После повышение получаем " + radio.getCurrentVolume());
-   // }
+    @ParameterizedTest
+    @CsvFileSource(resources = "increaseVolumeParameter.csv")
+    public void shouldIncreaseVolume(int currentVolume, int expected) {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(currentVolume);
+        System.out.print("Текущий уровень громкости  " + radio.getCurrentVolume() + ", ");
+        radio.increaseVolume();
+        int actual = radio.getCurrentVolume();
+        Assertions.assertEquals(expected, actual);
+        System.out.println("После повышение получаем " + radio.getCurrentVolume());
+    }
 
     // @Test
     //public void increaseVolume() {
@@ -140,30 +139,32 @@ public class RadioTest {
     // System.out.println("Новый уровень громкости  " + radio.getCurrentVolume());
     //}
 
-   // @ParameterizedTest
-    //@CsvFileSource(resources = "decreaseVolumeParameter.csv")
-   // public void shouldDecreaseVolume(int currentVolume, int expected) {
-     //   Radio radio = new Radio();
-       // radio.setCurrentVolume(currentVolume);
-        //System.out.print("Текущий уровень громкости " + radio.getCurrentVolume() + ", ");
-        //radio.decreaseVolume();
-       // int actual = radio.getCurrentVolume();
-       // Assertions.assertEquals(expected, actual);
-       // System.out.println("После уменьшения получаем " + radio.getCurrentVolume());
-  //  }
+    @ParameterizedTest
+    @CsvFileSource(resources = "decreaseVolumeParameter.csv")
+    public void shouldDecreaseVolume(int currentVolume, int expected) {
 
-    //@Test
-    //public void decreaseVolume() {
-    //Radio radio = new Radio();
-    //radio.setCurrentVolume(101);
+        Radio radio = new Radio();
+        radio.setCurrentVolume(currentVolume);
+        System.out.print("Текущий уровень громкости " + radio.getCurrentVolume() + ", ");
+        radio.decreaseVolume();
+        int actual = radio.getCurrentVolume();
+        Assertions.assertEquals(expected, actual);
+        System.out.println("После уменьшения получаем " + radio.getCurrentVolume());
+    }
+}
 
-    //System.out.print("Текущий уровень громкости  " + radio.getCurrentVolume() + ", ");
+//@Test
+//public void decreaseVolume() {
+//Radio radio = new Radio();
+//radio.setCurrentVolume(101);
 
-    // radio.decreaseVolume();
+//System.out.print("Текущий уровень громкости  " + radio.getCurrentVolume() + ", ");
 
-    // int expected = 99;
-    // int actual = radio.getCurrentVolume();
-    // Assertions.assertEquals(expected, actual);
-    // System.out.println("После уменьшения получаем  " + radio.getCurrentVolume());
-    // }
+// radio.decreaseVolume();
+
+// int expected = 99;
+// int actual = radio.getCurrentVolume();
+// Assertions.assertEquals(expected, actual);
+// System.out.println("После уменьшения получаем  " + radio.getCurrentVolume());
+// }
 
