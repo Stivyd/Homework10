@@ -22,14 +22,13 @@ public class RadioTest {
 
     @Test
     public void shouldSetTotalStation() {
-        Radio radio = new Radio();
-
-        radio.setTotalStation(15);
+        Radio radio = new Radio(15);
 
         int expected = 15;
         int actual = radio.getTotalStation();
         Assertions.assertEquals(expected, actual);
         System.out.print("Общее количество радиостанций - " + actual + ", ");
+        System.out.print("Номер минимальной радиостанции - " + radio.getMinStation() + ", ");
         System.out.println("Номер максимальной радиостанции - " + radio.getMaxStation());
     }
 
@@ -65,15 +64,17 @@ public class RadioTest {
 
     @ParameterizedTest
     @CsvFileSource(resources = "prevStationParameter.csv")
-    public void shouldSetPrevStationParametrized(int currentStation, int expected) {
+    public void shouldSetPrevStationParametrized(int totalStation, int currentStation, int expected) {
         Radio radio = new Radio();
+        radio.setTotalStation(totalStation);
         radio.setCurrentStation(currentStation);
+        System.out.print("Всего радиостанций - " + radio.getTotalStation() + ", ");
         System.out.print("Текущая радиостанция " + radio.getCurrentStation() + ", ");
         radio.prevStation();
 
         int actual = radio.getCurrentStation();
         Assertions.assertEquals(expected, actual);
-        System.out.println("Предыдущая радиостанция " + radio.getCurrentStation());
+        System.out.println("Предыдущая радиостанция " + actual);
     }
 
     // @Test
@@ -151,6 +152,7 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
         System.out.println("После уменьшения получаем " + radio.getCurrentVolume());
     }
+
 }
 
 //@Test
@@ -167,4 +169,5 @@ public class RadioTest {
 // Assertions.assertEquals(expected, actual);
 // System.out.println("После уменьшения получаем  " + radio.getCurrentVolume());
 // }
+
 

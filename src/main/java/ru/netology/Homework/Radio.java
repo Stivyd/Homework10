@@ -11,6 +11,18 @@ public class Radio {
     private int totalStation = 10;
 
 
+    public Radio(int totalStation) {
+        this.totalStation = totalStation;
+        maxStation = minStation + totalStation - 1;
+
+    }
+
+    public Radio() {
+        this.totalStation = totalStation;
+        maxStation = maxStation + totalStation - 1;
+
+    }
+
     public int getCurrentStation() {
         return currentStation;
     }
